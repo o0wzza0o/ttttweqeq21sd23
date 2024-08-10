@@ -404,4 +404,4 @@ process.on('unhandledRejection', (reason, promise) => {
             .catch(console.error);
     }
 });
-client.login('');
+client.login(process.env.TOKEN);
