@@ -1,4 +1,5 @@
 const { Client, Intents,MessageEmbed } = require('discord.js');
+const keep_alive = require('./keep_alive.js')
 const fs = require('fs');
 
 const client = new Client({
