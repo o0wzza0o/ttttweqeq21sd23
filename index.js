@@ -9,7 +9,7 @@ app.use(express.static('public')); // خدمة الملفات الثابتة م�
 
 const CLIENT_ID = '1271525481044246671'; // استبدل بـ Client ID الخاص بك
 const CLIENT_SECRET = 'jgOWHvyy5jTX2kT4DamsAnObj-5OKgXz'; // استبدل بـ Client Secret الخاص بك
-const REDIRECT_URI = 'http://localhost:3000/callback'; // استبدل بـ URI التحويل الخاص بك
+const REDIRECT_URI = 'https://ttttweqeq21sd23-fw9kbmd6n-o0wzza0os-projects.vercel.app/callback'; // استبدل بـ URI التحويل الخاص بك
 
 // صفحة تسجيل الدخول
 app.get('/auth/discord', (req, res) => {
