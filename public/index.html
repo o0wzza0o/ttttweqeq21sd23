@@ -207,7 +207,7 @@
         document.getElementById('logoutBtn').addEventListener('click', () => {
           localStorage.removeItem('discordUserId');
           localStorage.removeItem('discordToken');
-          window.location.href = 'http://localhost:3000/auth/discord';
+          window.location.href = 'https://ttttweqeq21sd23-fw9kbmd6n-o0wzza0os-projects.vercel.app/auth/discord';
         });
  // Check the screen dimensions
  function checkScreenSize() {
@@ -282,7 +282,7 @@ function checkScreenSize() {
           const discordToken = localStorage.getItem('discordToken');
       
           if (!userId || !discordToken) {
-            window.location.href = 'http://localhost:3000/auth/discord';
+            window.location.href = 'https://ttttweqeq21sd23-fw9kbmd6n-o0wzza0os-projects.vercel.app/auth/discord';
             return;
           }
 
@@ -306,7 +306,7 @@ function checkScreenSize() {
         }
           } catch (error) {
             console.error(error);
-            window.location.href = 'http://localhost:3000/auth/discord';
+            window.location.href = 'https://ttttweqeq21sd23-fw9kbmd6n-o0wzza0os-projects.vercel.app/auth/discord';
           }
         });
     </script>
