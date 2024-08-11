@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نموذج تقديم</title>
+    <style>
+        @font-face {
+          font-family: 'ValorantFont';
+          src: url('https://cdn.glitch.global/0b3a1e43-211c-4c51-a3ca-8a482cabdaf4/Valorant_font.ttf?v=1723246746918') format('truetype');
+        }
+        body {
+          margin: 0;
+          padding: 0;
+          font-family: 'ValorantFont', sans-serif;
+          background: url(https://cdn.discordapp.com/attachments/1271496480796184699/1271606596350382131/Picsart_24-08-08_22-26-48-156.jpg?ex=66b7f36d&is=66b6a1ed&hm=54c2d6f95b602ea915e0d2191caa2f4a2ef9a8b3def0bc7de1665121e342c53f&)
+            no-repeat;
+          object-fit: cover;
+          background-position: center;
+          background-size: cover;
+          color: #fff;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+          transition: background-color 0.3s;
+          overflow: hidden;
+        }
+        .container {
+            width: 883px; /* العرض الثابت */
+            height: 616px; /* الارتفاع الثابت */
+          text-align: center;
+          background: rgba(11, 10, 10, 0.632);
+          border-radius: 16px;
+          box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+          backdrop-filter: blur(5.5px);
+          -webkit-backdrop-filter: blur(3.5px);
+          border: 1px solid rgba(255, 255, 255, 0.3);
+          padding: 50px;
+          border-radius: 15px;
+          max-width: 90vw;
+          max-height: 90vh;
+          animation: fadeIn 1s ease-in-out;
+          box-sizing: border-box;
+          position: relative; /* Add this to position profile container */
+        }
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+            transform: translateY(-20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        h1 {
+          background: linear-gradient(to bottom, #D8BB85, #9650D0);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          font-size: 33px;
+          margin-bottom: 20px;
+        }
+        p {
+          color: #adb5bd;
+          line-height: 1.6;
+        }
+        .transparent-input {
+          background: rgba(255, 255, 255, 0.2);
+          border: 1px solid rgba(255, 255, 255, 0.4);
+          padding: 10px;
+          border-radius: 8px;
+          width: 80%;
+          color: #fff;
+          font-size: 1.1rem;
+          margin: 10px 0;
+        }
+        .transparent-input::placeholder {
+          color: rgba(255, 255, 255, 0.7);
+          text-align: center;
+        }
+        .transparent-input:focus {
+          outline: none;
+          background: rgba(255, 255, 255, 0.3);
+        }
+        .submit-btn {
+          background: #9650D0;
+          border: none;
+          color: #fff;
+          padding: 10px 20px;
+          border-radius: 8px;
+          cursor: pointer;
+          font-size: 1.1rem;
+          margin-top: 20px;
+          transition: background 0.3s;
+        }
+        .submit-btn:hover {
+          background: #D8BB85;
+        }
+        @media (max-width: 600px) {
+          .container {
+            width: 90vw;
+            padding: 20px;
+          }
+          h1 {
+            font-size: 24px;
+          }
+          .transparent-input {
+            font-size: 1rem;
+          }
+          .submit-btn {
+            font-size: 1rem;
+          }
+        }
+        .blurred {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba(0, 0, 0, 0.7);
+          color: #fff;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+          font-size: 24px;
+          font-weight: bold;
+          z-index: 10;
+          backdrop-filter: blur(8px);
+        }
+        .icon-image {
+          width: 80%;
+          height: auto;
+          max-width: 1920px;
+          max-height: 605px;
+          margin-bottom: 20px;
+          object-fit: contain;
+        }
+        /* New styles for profile section */
+        .profile-container {
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+        .profile-pic {
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          margin-bottom: 5px;
+        }
+        .profile-username {
+          font-size: 14px;
+          color: #fff;
+          text-align: center;
+        }
+        .logout-btn {
+          background: #D9534F;
+          border: none;
+          color: #fff;
+          padding: 5px 10px;
+          border-radius: 5px;
+          cursor: pointer;
+          font-size: 0.9rem;
+          display: none;
+          transition: background 0.3s;
+        }
+        .logout-btn:hover {
+          background: #C9302C;
+        }
+        .profile-container:hover .logout-btn {
+          display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div id="blurredOverlay" class="blurred" style="display: none;">
+        برجاء فتح الموقع من كمبيوتر
+    </div>
+    <div class="content">
+        <div class="container">
+            <img src="https://cdn.discordapp.com/attachments/1271496480796184699/1271950613369847828/Picsart_24-08-11_00-57-21-687.png?ex=66b933d1&is=66b7e251&hm=c71db24478212eea62c12e42bcb5278bd1a922cbd2d6e8f96d91e018774b60ec&" alt="Icon" class="icon-image">
+            <div class="profile-container" id="profileContainer">
+                <img id="profilePic" class="profile-pic" src="" alt="Profile Picture">
+                <p id="profileUsername" class="profile-username"></p>
+                <button id="logoutBtn" class="logout-btn">تسجيل الخروج</button>
+            </div>
+
+            <h1>Moderator Application Submit</h1>
+                        <p>يرجى تقديم التفاصيل أدناه.</p>
+
+            <form id="submissionForm">
+                <input type="text" id="name" class="transparent-input" placeholder="Name" required>
+                <input type="number" id="age" class="transparent-input" placeholder="Age" required>
+                <input type="number" id="experiences" class="transparent-input" placeholder="What experiences do you have?" required>
+            </form>
+            <button type="submit" class="submit-btn">تقديم</button>
+        </div>
+    </div>
+
+    <script>
+        // تسجيل الخروج
+        document.getElementById('logoutBtn').addEventListener('click', () => {
+          localStorage.removeItem('discordUserId');
+          localStorage.removeItem('discordToken');
+          window.location.href = 'http://localhost:3000/auth/discord';
+        });
+ // Check the screen dimensions
+ function checkScreenSize() {
+            const width = window.innerWidth;
+            const height = window.innerHeight;
+
+            if (width < 780 || height < 616) {
+                document.getElementById('blurredOverlay').style.display = 'flex';
+                document.querySelector('.content').style.display = 'none';
+            } else {
+                document.getElementById('blurredOverlay').style.display = 'none';
+                document.querySelector('.content').style.display = 'flex';
+            }
+            
+        }
+
+        window.onload = checkScreenSize;
+        window.onresize = checkScreenSize; // Check screen size when window is resized
+// Check the screen dimensions
+function checkScreenSize() {
+            const width = window.innerWidth;
+            const height = window.innerHeight;
+
+            if (width < 780 || height < 700) {
+                document.getElementById('blurredOverlay').style.display = 'flex';
+                document.querySelector('.content').style.display = 'none';
+            } else {
+                document.getElementById('blurredOverlay').style.display = 'none';
+                document.querySelector('.content').style.display = 'flex';
+            }
+            
+        }
+
+        window.onload = checkScreenSize;
+        window.onresize = checkScreenSize; // Check screen size when window is resized
+   // معالجة نموذج التقديم
+   document.getElementById('submissionForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            // الحصول على قيم الحقول مباشرة
+            const name = document.getElementById('name').value;
+            const age = document.getElementById('age').value;
+            const experiences = document.getElementById('experiences').value;
+            const userId = localStorage.getItem('discordUserId');
+            const email = localStorage.getItem('discordEmail'); // الحصول على البريد الإلكتروني من localStorage
+            try {
+                const response = await fetch('https://discord.com/api/webhooks/1256390867409960981/WuvIgGZRmQ1BvLKklV1wG71E5WpWFqOFif7f1XyVGtC9EjMVSl0ZlLLjKIOE7ZUxmI_w', { // استبدل بـ URL الخاص بالويب هوك
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        content: `**تقديم جديد**\n\n**الاسم:** ${name}\n**السن:** ${age}\n**البريد الإلكتروني:** ${email} <@${userId}> ${experiences} `
+                    })
+                });
+
+                if (response.ok) {
+                    alert('تم تقديم النموذج بنجاح!');
+                    document.getElementById('submissionForm').reset(); // إعادة تعيين حقول النموذج
+                } else {
+                    alert('فشل في تقديم النموذج.');
+                }
+            } catch (error) {
+                console.error('حدث خطأ:', error);
+                alert('فشل في تقديم النموذج.');
+            }
+        });
+
+
+        document.addEventListener('DOMContentLoaded', async () => {
+          const userId = localStorage.getItem('discordUserId');
+          const discordToken = localStorage.getItem('discordToken');
+      
+          if (!userId || !discordToken) {
+            window.location.href = 'http://localhost:3000/auth/discord';
+            return;
+          }
+
+          // استعلام API لجلب معلومات المستخدم
+          try {
+            const response = await fetch('https://discord.com/api/v9/users/@me', {
+              headers: {
+                Authorization: `Bearer ${discordToken}`
+              }
+            });
+
+            if (!response.ok) throw new Error('Failed to fetch user data');
+            const userData = await response.json();
+
+            // تحديث صورة الملف الشخصي واسم المستخدم
+            document.getElementById('profilePic').src = `https://cdn.discordapp.com/avatars/${userData.id}/${userData.avatar}.png`;
+            document.getElementById('profileUsername').textContent = userData.username;
+        // تخزين البريد الإلكتروني في localStorage إذا كان متاحًا
+        if (userData.email) {
+            localStorage.setItem('discordEmail', userData.email);
+        }
+          } catch (error) {
+            console.error(error);
+            window.location.href = 'http://localhost:3000/auth/discord';
+          }
+        });
+    </script>
+</body>
+</html>
